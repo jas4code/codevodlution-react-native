@@ -4,7 +4,12 @@ export default function App() {
 	return (
 		// <View style={{ flex: 1, backgroundColor: 'plum', padding: 60 }}>
 		<View style={styles.container}>
-			<Text style={styles.title}>Styleshee API</Text>
+			<View style={[styles.box, styles.lightblueBg]}>
+				<Text>Lightblue box</Text>
+			</View>
+			<View style={[styles.box, styles.lightgreenBg]}>
+				<Text>Lightgreen box</Text>
+			</View>
 		</View>
 	);
 }
@@ -15,5 +20,16 @@ const styles = StyleSheet.create({
 		backgroundColor: 'plum',
 		padding: 60,
 	},
-	title: {},
+	box: {
+		width: 100,
+		height: 100,
+		padding: 10,
+		backgroundColor: 'pink',
+	},
+	lightblueBg: {
+		backgroundColor: 'lightblue',
+	},
+	lightgreenBg: {
+		backgroundColor: 'lightgreen',
+	},
 });
