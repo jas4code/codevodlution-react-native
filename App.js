@@ -18,7 +18,7 @@ export default function App() {
 
 			<FlatList
 				style={styles.flatList}
-				data={pokemonList}
+				data={[]}
 				renderItem={({ item }) => {
 					// console.log(item.id);
 					return (
@@ -30,6 +30,7 @@ export default function App() {
 				}}
 				// horizontal
 				keyExtractor={(item) => item.id.toString()}
+				ListEmptyComponent={<Text>No items found</Text>}
 			/>
 		</View>
 	);
