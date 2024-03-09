@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, ScrollView, StatusBar, FlatList } from 'react-native';
 import pokemonList from './data.json';
+import groupedPokemonList from './grouped-data.json';
 
 export default function App() {
 	return (
@@ -18,7 +19,7 @@ export default function App() {
 
 			<FlatList
 				style={styles.flatList}
-				data={[]}
+				data={pokemonList}
 				renderItem={({ item }) => {
 					// console.log(item.id);
 					return (
@@ -31,6 +32,8 @@ export default function App() {
 				// horizontal
 				keyExtractor={(item) => item.id.toString()}
 				ListEmptyComponent={<Text>No items found</Text>}
+				ListHeaderComponent={<Text style={styles.headerText}>Pokemon List</Text>}
+				ListFooterComponent={<Text style={styles.footerText}>End of list</Text>}
 			/>
 		</View>
 	);
@@ -59,5 +62,15 @@ const styles = StyleSheet.create({
 	},
 	cardText: {
 		fontSize: 24,
+	},
+	headerText: {
+		fontSize: 24,
+		textAlign: 'center',
+		marginBottom: 12,
+	},
+	footerText: {
+		fontSize: 24,
+		textAlign: 'center',
+		marginTop: 12,
 	},
 });
