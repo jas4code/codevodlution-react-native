@@ -1,20 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, SafeAreaView, TextInput } from 'react-native';
+import { useState } from 'react';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+	const [name, setName] = useState('');
+
+	return (
+		<SafeAreaView style={styles.container}>
+			<TextInput style={styles.input} value={name} onChangeText={setName} />
+			<Text style={styles.text}>My name is {name}</Text>
+		</SafeAreaView>
+	);
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+	container: {
+		flex: 1,
+		backgroundColor: '#fff',
+		paddingTop: StatusBar.currentHeight,
+	},
+	input: {
+		height: 40,
+		margin: 12,
+		padding: 10,
+		borderWidth: 1,
+	},
+	text: {
+		fontSize: 24,
+	},
 });
