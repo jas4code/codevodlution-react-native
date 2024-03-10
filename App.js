@@ -7,6 +7,7 @@ export default function App() {
 	return (
 		<SafeAreaView style={styles.container}>
 			<TextInput style={styles.input} value={name} onChangeText={setName} placeholder='email@example.com' autoCapitalize='none' autoCorrect={false} secureTextEntry keyboardType='default' />
+			<TextInput style={[styles.input, styles.multilineText]} placeholder='message' multiline />
 			<Text style={styles.text}>My name is {name}!</Text>
 		</SafeAreaView>
 	);
@@ -26,5 +27,9 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		fontSize: 24,
+	},
+	multilineText: {
+		minHeight: 100,
+		textAlignVertical: 'top',
 	},
 });
