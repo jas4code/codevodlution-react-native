@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Image, KeyboardAvoidingView, Platform } from 'react-native';
 import React, { useState } from 'react';
 
 export default function App() {
@@ -6,15 +6,16 @@ export default function App() {
 	const [password, setPassword] = useState('');
 
 	return (
-		<View style={styles.container}>
+		<KeyboardAvoidingView behaviour='padding' keyboardVerticalOffset={Platform.OS === 'ios' ? 100 : 0} style={styles.container}>
 			<View style={styles.form}>
+				<Image source={require('./assets/adaptive-icon.png')} style={styles.image} />
 				<Text style={styles.label}>Username</Text>
 				<TextInput style={styles.input} placeholder='Enter your username' value={username} onChangeText={setUsername} />
 				<Text style={styles.label}>Password</Text>
 				<TextInput style={styles.input} placeholder='Enter your password' secureTextEntry value={password} onChangeText={setPassword} />
 				<Button title='login' onPress={() => {}} />
 			</View>
-		</View>
+		</KeyboardAvoidingView>
 	);
 }
 
@@ -50,5 +51,11 @@ const styles = StyleSheet.create({
 		marginBottom: 15,
 		padding: 10,
 		borderRadius: 5,
+	},
+	image: {
+		width: 200,
+		height: 200,
+		alignSelf: 'center',
+		marginBottom: 50,
 	},
 });
